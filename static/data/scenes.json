@@ -2,10 +2,11 @@
   "replay": [
     {
       "label": "Scene 01",
-      "src": null,
-      "poster": null,
-      "caption": null,
-      "captions": null
+      "src": "static/video/01_replay.mp4",
+      "poster": "static/images/01_replay.webp?v=787faa8c7a",
+      "caption": "Scene 01 \u00b7 Original playback speed",
+      "captions": null,
+      "recorded_scene": 1
     },
     {
       "label": "Scene 02",
