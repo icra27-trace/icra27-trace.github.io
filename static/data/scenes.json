@@ -10,10 +10,11 @@
     },
     {
       "label": "Scene 02",
-      "src": null,
-      "poster": null,
-      "caption": null,
-      "captions": null
+      "src": "static/video/02_replay.mp4",
+      "poster": "static/images/02_replay.webp?v=698e9f73cf",
+      "caption": "Scene 02 \u00b7 Original playback speed",
+      "captions": null,
+      "recorded_scene": 2
     },
     {
       "label": "Scene 03",
