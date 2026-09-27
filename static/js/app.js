@@ -165,7 +165,8 @@ function createGallery(gallery, scenes) {
     const scene = scenes[index];
     const stage = panels.children[index];
     counter.textContent = `${String(index + 1).padStart(2, '0')} / ${String(scenes.length).padStart(2, '0')}`;
-    caption.textContent = scene.caption || `${method} · ${scene.label} · Video coming soon`;
+    caption.hidden = Boolean(scene.src) && !scene.caption;
+    caption.textContent = scene.caption || (scene.src ? '' : `${method} · ${scene.label} · Video coming soon`);
     outcome.hidden = !scene.src || !['success', 'failure'].includes(scene.outcome);
     outcome.dataset.outcome = outcome.hidden ? '' : scene.outcome;
     outcome.textContent = outcome.hidden ? '' : `Outcome: ${scene.outcome === 'success' ? 'Success' : 'Failure'}${scene.outcome === 'failure' && scene.failure_reason ? ` · ${scene.failure_reason}` : ''}`;
@@ -183,6 +184,7 @@ function createGallery(gallery, scenes) {
         video.append(track);
       }
       video.addEventListener('error', () => {
+        caption.hidden = false;
         caption.textContent = `${method} · ${scene.label} · This video is currently unavailable.`;
       });
       stage.append(video);
