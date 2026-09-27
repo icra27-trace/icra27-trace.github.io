@@ -13,8 +13,8 @@
   <link rel="icon" href="static/images/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="static/fonts/outfit.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="static/fonts/dm-sans.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="static/css/index.css?v=fc538e26a5">
-  <script src="static/js/app.js?v=c1a4ceb83a" defer></script>
+  <link rel="stylesheet" href="static/css/index.css?v=2c878d2db2">
+  <script src="static/js/app.js?v=68e5bfdbf9" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -109,6 +109,7 @@
       <div class="method-panel" id="trace-panel" role="tabpanel" aria-labelledby="trace-tab">
         <div class="scene-gallery" data-gallery="trace" aria-label="TRACE scene videos">
           <video class="scene-video" controls playsinline preload="none" src="static/video/01_trace.mp4" poster="static/images/01_trace.webp?v=1d0aa55108" aria-label="TRACE, scene 01">Your browser does not support embedded video. <a href="static/video/01_trace.mp4">Download the recording.</a></video>
+          <p class="scene-outcome" data-outcome="success">Outcome: Success</p>
           <p class="scene-caption">Scene 01 · Original playback speed</p>
         </div>
         <p class="method-takeaway method-takeaway--trace" aria-describedby="benchmark-context"><span class="takeaway-metrics"><span class="takeaway-metric"><strong>90.0%</strong> success</span><span class="takeaway-metric takeaway-metric--time"><strong>67.3 s</strong> total</span></span><span class="takeaway-comparison"><strong>2.9× faster than Online Teacher</strong>, with no sensing retractions during pushing.</span></p>
@@ -116,6 +117,7 @@
       <div class="method-panel" id="online-teacher-panel" role="tabpanel" aria-labelledby="online-teacher-tab" hidden>
         <div class="scene-gallery" data-gallery="online-teacher" aria-label="Online Teacher scene videos">
           <video class="scene-video" controls playsinline preload="none" src="static/video/01_onlineteacher.mp4" poster="static/images/01_onlineteacher.webp?v=9410701544" aria-label="Online Teacher, scene 01">Your browser does not support embedded video. <a href="static/video/01_onlineteacher.mp4">Download the recording.</a></video>
+          <p class="scene-outcome" data-outcome="success">Outcome: Success</p>
           <p class="scene-caption">Scene 01 · Original playback speed</p>
         </div>
         <p class="method-takeaway" aria-describedby="benchmark-context"><span class="takeaway-metrics"><span class="takeaway-metric"><strong>95.0%</strong> success</span><span class="takeaway-metric takeaway-metric--time"><strong>192.7 s</strong> total</span></span><span class="takeaway-comparison">Highest success, but <strong>2.9× TRACE’s total time</strong> and repeated sensing retractions.</span></p>
@@ -123,13 +125,15 @@
       <div class="method-panel" id="replay-panel" role="tabpanel" aria-labelledby="replay-tab" hidden>
         <div class="scene-gallery" data-gallery="replay" aria-label="Teacher Replay scene videos">
           <video class="scene-video" controls playsinline preload="none" src="static/video/01_replay.mp4" poster="static/images/01_replay.webp?v=787faa8c7a" aria-label="Teacher Replay, scene 01">Your browser does not support embedded video. <a href="static/video/01_replay.mp4">Download the recording.</a></video>
-          <p class="scene-caption">Scene 01 · Original playback speed</p>
+          <p class="scene-outcome" data-outcome="failure">Outcome: Failure</p>
+          <p class="scene-caption">Original playback speed</p>
         </div>
         <p class="method-takeaway" aria-describedby="benchmark-context"><span class="takeaway-metrics"><span class="takeaway-metric"><strong>47.5%</strong> success</span><span class="takeaway-metric takeaway-metric--time"><strong>49.5 s</strong> total</span></span><span class="takeaway-comparison">Faster than TRACE, but <strong>42.5 percentage points less success</strong> without execution feedback.</span></p>
       </div>
       <div class="method-panel" id="pmbs-panel" role="tabpanel" aria-labelledby="pmbs-tab" hidden>
         <div class="scene-gallery" data-gallery="pmbs" aria-label="PMBS scene videos">
           <video class="scene-video" controls playsinline preload="none" src="static/video/01_pmbs.mp4" poster="static/images/01_pmbs.webp?v=778b9decba" aria-label="PMBS, scene 01">Your browser does not support embedded video. <a href="static/video/01_pmbs.mp4">Download the recording.</a></video>
+          <p class="scene-outcome" data-outcome="failure">Outcome: Failure · Timeout</p>
           <p class="scene-caption">Scene 01 · Original playback speed</p>
         </div>
         <p class="method-takeaway" aria-describedby="benchmark-context"><span class="takeaway-metrics"><span class="takeaway-metric"><strong>85.0%</strong> success</span><span class="takeaway-metric takeaway-metric--time"><strong>141.1 s</strong> total</span></span><span class="takeaway-comparison">5 percentage points less success and <strong>2.1× TRACE’s total time</strong>, with complete-scene sensing.</span></p>
@@ -137,6 +141,7 @@
       <div class="method-panel" id="spiral-panel" role="tabpanel" aria-labelledby="spiral-tab" hidden>
         <div class="scene-gallery" data-gallery="spiral" aria-label="Spiral scene videos">
           <video class="scene-video" controls playsinline preload="none" src="static/video/01_spiral.mp4" poster="static/images/01_spiral.webp?v=1f72ad88b0" aria-label="Spiral, scene 01">Your browser does not support embedded video. <a href="static/video/01_spiral.mp4">Download the recording.</a></video>
+          <p class="scene-outcome" data-outcome="failure">Outcome: Failure · Out of workspace (OOW)</p>
           <p class="scene-caption">Scene 01 · Original playback speed</p>
         </div>
         <p class="method-takeaway" aria-describedby="benchmark-context"><span class="takeaway-metrics"><span class="takeaway-metric"><strong>77.5%</strong> success</span><span class="takeaway-metric takeaway-metric--time"><strong>44.4 s</strong> total</span></span><span class="takeaway-comparison">Fastest, but <strong class="takeaway-oow">17.5% out-of-workspace (OOW) failures</strong> versus 0% for TRACE.</span></p>
