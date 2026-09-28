@@ -72,65 +72,80 @@ This separates closed-loop pushing under partial visibility from the final check
 00:01:37.726 --> 00:01:39.600
 requires a clear view.
 
-00:01:40.250 --> 00:01:44.163
-Across the hardware benchmark, TRACE achieves ninety percent success,
+00:01:40.250 --> 00:01:42.785
+Here is TRACE across additional cluttered
+scenes.
 
-00:01:44.163 --> 00:01:48.511
-with no observed workspace violations or sensing retractions during pushing.
+00:01:45.500 --> 00:01:49.297
+Each scene begins with its own teacher
+generated plan. The
 
-00:01:48.511 --> 00:01:51.555
-Its remaining failures reach the execution budget.
+00:01:49.297 --> 00:01:52.714
+student adapts its actions using partial
+observations and memory.
 
-00:01:51.555 --> 00:01:55.034
-TRACE is more reliable than replay and Spiral,
+00:01:53.000 --> 00:01:55.276
+The initial plan stays fixed, while
 
-00:01:55.034 --> 00:02:00.251
-and improves both success and total time over P M B S.
+00:01:55.276 --> 00:01:57.551
+execution responds to the changing scene.
 
-00:02:00.251 --> 00:02:02.425
-Spiral remains faster on average.
+00:01:58.250 --> 00:02:00.643
+Across forty hardware trials, TRACE
 
-00:02:02.425 --> 00:02:05.904
-The online teacher reaches ninety five percent success;
+00:02:00.643 --> 00:02:03.036
+achieves ninety percent retrieval success.
 
-00:02:05.904 --> 00:02:10.252
-TRACE is two point nine times faster end to end.
+00:02:04.500 --> 00:02:07.145
+No workspace violations or sensing
+retractions
 
-00:02:10.252 --> 00:02:14.600
-One initial plan supports adaptive execution without repeated complete-scene reacquisition.
+00:02:07.145 --> 00:02:10.231
+during pushing were observed in these
+trials.
 
-00:02:15.250 --> 00:02:18.573
-Teacher Replay executes a fixed plan without object feedback.
+00:02:10.750 --> 00:02:13.705
+Its remaining failures reach the execution
+budget.
 
-00:02:18.573 --> 00:02:22.634
-It cannot correct contact-induced deviations and may leave the target ungraspable.
+00:02:15.250 --> 00:02:19.565
+Now, the baselines. Teacher Replay follows
+a fixed plan without
 
-00:02:22.634 --> 00:02:25.588
-The online teacher achieves the highest hardware success,
+00:02:19.565 --> 00:02:23.448
+object feedback, so it cannot correct
+contact induced deviations.
 
-00:02:25.588 --> 00:02:29.279
-but repeatedly retracts the arm to recover complete scene state.
+00:02:23.750 --> 00:02:27.792
+The Online Teacher updates its actions
+from complete scene
 
-00:02:29.279 --> 00:02:32.971
-P M B S, the previous state of the art,
+00:02:27.792 --> 00:02:31.833
+observations, but repeatedly retracts the
+arm to restore visibility.
 
-00:02:32.971 --> 00:02:38.509
-combines tree search with batched simulation; planning and scene reacquisition increase end to end time.
+00:02:32.500 --> 00:02:36.243
+P M B S uses tree search and batched
 
-00:02:38.509 --> 00:02:40.725
-Spiral is a target-centric pushing heuristic.
+00:02:36.243 --> 00:02:39.986
+simulation. Repeated planning and scene
+reacquisition increase total time.
 
-00:02:40.725 --> 00:02:45.155
-It requires an updated target pose at each decision and retracts the
+00:02:41.250 --> 00:02:44.431
+Spiral uses target centered pushing. It is
+fastest
 
-00:02:45.155 --> 00:02:47.370
-arm when the target is occluded.
+00:02:44.431 --> 00:02:47.612
+on average, but less reliable in tight
+clutter.
 
-00:02:47.370 --> 00:02:51.431
-Spiral is fastest on average, but unreliable in these tight workspaces,
+00:02:48.250 --> 00:02:51.928
+TRACE is two point nine times faster end
+to end,
 
-00:02:51.431 --> 00:02:56.600
-with lower success than TRACE and a substantial rate of out of workspace failures.
+00:02:51.928 --> 00:02:55.606
+with ninety percent success versus the
+Online Teacher's ninety five.
 
 00:02:57.100 --> 00:02:58.840
 Plan conditioned retrieval.
