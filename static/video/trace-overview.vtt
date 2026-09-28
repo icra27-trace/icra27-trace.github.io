@@ -27,110 +27,116 @@ The plan stays fixed; actions adapt as objects move.
 00:00:29.100 --> 00:00:29.840
 Demonstrations.
 
-00:00:30.250 --> 00:00:33.573
-Teacher Replay executes a fixed plan without object feedback.
+00:00:30.300 --> 00:00:33.076
+Here is TRACE in real time, on a single
+scene.
 
-00:00:33.573 --> 00:00:37.634
-It cannot correct contact-induced deviations and may leave the target ungraspable.
+00:00:35.400 --> 00:00:38.068
+The teacher has already planned once in
+simulation.
 
-00:00:37.634 --> 00:00:40.588
-The online teacher achieves the highest hardware success,
+00:00:39.700 --> 00:00:41.969
+The student uses that plan, partial
 
-00:00:40.588 --> 00:00:44.279
-but repeatedly retracts the arm to recover complete scene state.
+00:00:41.969 --> 00:00:44.616
+observations, and memory to guide each
+push.
 
-00:00:44.279 --> 00:00:47.971
-P M B S, the previous state of the art,
+00:00:47.200 --> 00:00:49.822
+It keeps pushing even when the arm blocks
+the camera.
 
-00:00:47.971 --> 00:00:53.509
-combines tree search with batched simulation; planning and scene reacquisition increase end to end time.
+00:00:53.000 --> 00:00:57.456
+Only after pushing does the arm withdraw
+for a final graspability check.
 
-00:00:53.509 --> 00:00:55.725
-Spiral is a target-centric pushing heuristic.
+00:01:00.400 --> 00:01:03.871
+The robot then grasps the exposed target
+and retrieves it.
 
-00:00:55.725 --> 00:01:00.155
-It requires an updated target pose at each decision and retracts the
+00:01:10.300 --> 00:01:13.957
+Now, two more scenes at four times speed,
+shown one at a time.
 
-00:01:00.155 --> 00:01:02.370
-arm when the target is occluded.
+00:01:16.100 --> 00:01:20.144
+Each scene starts with its own plan, which
+stays fixed during execution.
 
-00:01:02.370 --> 00:01:06.431
-Spiral is fastest on average, but unreliable in these tight workspaces,
+00:01:22.500 --> 00:01:24.862
+The actions adapt as contact moves
 
-00:01:06.431 --> 00:01:11.600
-with lower success than TRACE and a substantial rate of out of workspace failures.
+00:01:24.862 --> 00:01:27.224
+objects away from their predicted
+positions.
 
-00:01:12.250 --> 00:01:17.873
-TRACE uses one privileged rollout to guide feedback control under self occlusion.
+00:01:29.100 --> 00:01:32.750
+Memory supports pushing under partial
+visibility, without
 
-00:01:17.873 --> 00:01:21.622
-A complete initial observation initializes the digital twin,
+00:01:32.750 --> 00:01:36.400
+online teacher queries, simulation, or
+sensing retractions.
 
-00:01:21.622 --> 00:01:26.307
-and the teacher produces a nominal plan before manipulation begins.
+00:01:37.300 --> 00:01:41.398
+For comparison, Teacher Replay executes a
+fixed action sequence.
 
-00:01:26.307 --> 00:01:30.525
-During pushing, the recurrent student combines partial object observations,
+00:01:42.300 --> 00:01:45.308
+Without object feedback, it cannot correct
 
-00:01:30.525 --> 00:01:36.148
-robot proprioception, memory, and local rollout context to select its next action.
+00:01:45.308 --> 00:01:48.316
+deviations. Here, the target remains
+ungraspable.
 
-00:01:36.148 --> 00:01:42.708
-The nominal plan stays fixed, while the executed actions adapt to the observed scene.
+00:01:49.300 --> 00:01:51.869
+The online teacher repeatedly retracts the
 
-00:01:42.708 --> 00:01:46.925
-As contact moves objects away from their predicted positions,
+00:01:51.869 --> 00:01:54.866
+arm to recover a complete scene
+observation.
 
-00:01:46.925 --> 00:01:50.205
-the controller can depart from the plan.
+00:01:56.200 --> 00:01:59.931
+It reaches ninety five percent success in
+the hardware benchmark.
 
-00:01:50.205 --> 00:01:56.297
-The observation history records object visibility and the age of the last observation,
+00:02:01.300 --> 00:02:03.650
+Those repeated sensing motions add time.
 
-00:01:56.297 --> 00:02:00.045
-retaining context when the arm blocks the view.
+00:02:06.300 --> 00:02:10.990
+P M B S combines tree search with batched
+simulation to choose each push.
 
-00:02:00.045 --> 00:02:06.137
-No online teacher queries, simulator rollouts, or sensing retractions are required during pushing.
+00:02:12.900 --> 00:02:16.472
+Planning and repeated scene reacquisition
+increase total time.
 
-00:02:06.137 --> 00:02:09.417
-The rollout defines the scene-specific execution horizon.
+00:02:18.400 --> 00:02:22.422
+In this trial, it exhausts its push budget
+without retrieving the target.
 
-00:02:09.417 --> 00:02:14.103
-The arm withdraws for the final graspability check before retrieval.
+00:02:24.300 --> 00:02:29.095
+Spiral uses a target centered pushing
+heuristic. It is fastest on average,
 
-00:02:14.103 --> 00:02:19.726
-This separates closed-loop pushing under partial visibility from the final check that
+00:02:29.800 --> 00:02:34.043
+but less reliable in tight clutter, with
+frequent workspace violations.
 
-00:02:19.726 --> 00:02:21.600
-requires a clear view.
+00:02:36.300 --> 00:02:40.344
+Across forty hardware trials, TRACE
+achieves ninety percent success.
 
-00:02:22.250 --> 00:02:26.163
-Across the hardware benchmark, TRACE achieves ninety percent success,
+00:02:42.400 --> 00:02:45.056
+No workspace violations or sensing
+retractions
 
-00:02:26.163 --> 00:02:30.511
-with no observed workspace violations or sensing retractions during pushing.
+00:02:45.056 --> 00:02:48.155
+during pushing were observed in these
+trials.
 
-00:02:30.511 --> 00:02:33.555
-Its remaining failures reach the execution budget.
-
-00:02:33.555 --> 00:02:37.034
-TRACE is more reliable than replay and Spiral,
-
-00:02:37.034 --> 00:02:42.251
-and improves both success and total time over P M B S.
-
-00:02:42.251 --> 00:02:44.425
-Spiral remains faster on average.
-
-00:02:44.425 --> 00:02:47.904
-The online teacher reaches ninety five percent success;
-
-00:02:47.904 --> 00:02:52.252
-TRACE is two point nine times faster end to end.
-
-00:02:52.252 --> 00:02:56.600
-One initial plan supports adaptive execution without repeated complete-scene reacquisition.
+00:02:49.700 --> 00:02:53.961
+TRACE is two point nine times faster end
+to end than the online teacher.
 
 00:02:57.100 --> 00:02:58.840
 Plan conditioned retrieval.
